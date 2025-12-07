@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Quiz</title>
+</head>
+<body>
+
+<h2>JavaScript Quiz</h2>
+
+<div id="quiz"></div>
+<button onclick="sub()">Submit</button>
+
+<h3 id="res"></h3>
+
+<script>
+    // Questions
+    let qns = [
+        { q: "1. JavaScript is used for?", opt: ["Styling", "Interactivity", "Database", "OS"], ans: 1 },
+        { q: "2. Which keyword declares a variable?", opt: ["var", "int", "main", "func"], ans: 0 },
+        { q: "3. Which symbol is used for comments?", opt: ["//", "/*", "#", "<!--"], ans: 0 }
+    ];
+
+    // Display
+    let qd = document.getElementById("quiz");
+
+    for (let i = 0; i < qns.length; i++) {
+        qd.innerHTML += "<p>" + qns[i].q + "</p>";
+
+        for (let j = 0; j < qns[i].opt.length; j++) {
+            qd.innerHTML += 
+                `<input type="radio" name="q${i}" value="${j}"> ${qns[i].opt[j]} <br>`;
+        }
+
+        qd.innerHTML += "<br>";
+    }
+
+    // Submit
+    function sub() {
+        let sc = 0;
+
+        for (let i = 0; i < qns.length; i++) {
+            let sel = document.querySelector(`input[name='q${i}']:checked`);
+            if (sel && sel.value == qns[i].ans) sc++;
+        }
+
+        document.getElementById("res").innerHTML = "Score: " + sc + "/" + qns.length;
+    }
+</script>
+
+</body>
+</html>

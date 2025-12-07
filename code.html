@@ -1,0 +1,18 @@
+
+    <input id="num1" value = "4">
+    <input id="num2" value = "7">
+    <button onclick = sum()>ADD</button>
+    <p id="result">Result</p>
+    <script>
+       
+        var a = document.getElementById("num1")
+        var b = document.getElementById("num2")
+        var result = document.getElementById("result")
+        var avalue = a.value
+        var bvalue = b.value
+         var tot = avalue+bvalue
+        function sum(){
+        result.textContent=tot
+        }
+       
+    </script>
